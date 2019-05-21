@@ -1,8 +1,8 @@
-const currency = require('./index');
+const oxr = require('open-exchange-rate');
 
-currency.set({ app_id: 'APP_ID_HERE' });
+oxr.set({ app_id: 'APP_ID_HERE' });
 
-currency.getExchangeRate(["CAD", "EUR", "GBP"]).then(({rates, timestamp}) => {
+oxr.getExchangeRate(["CAD", "EUR", "GBP"]).then(({rates, timestamp}) => {
     console.log('Response :: \nRates',rates, '\nTimestamp', timestamp);
 })
 .catch(err => {
