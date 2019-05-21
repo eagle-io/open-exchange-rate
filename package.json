@@ -1,6 +1,6 @@
 {
   "name": "open-exchange-rate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This package is used to get the exchange rates for the list of currencies.",
   "main": "index.js",
   "scripts": {

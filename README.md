@@ -17,7 +17,7 @@ Below given is the example to use this package.
 Note : USD is the base currency.
 
 ```
-const oxr = require('./index');
+const oxr = require('open-exchange-rate');
 
 oxr.set({ app_id: 'APP_ID_HERE' });
 
