@@ -1,7 +1,7 @@
 (() => {
 
         // Dependency
-        const request = require('request');
+        const axios = require('axios');
 
         //API object:
         let api = {};
@@ -28,25 +28,13 @@
                    +`&symbols=${currencies.join(',')}`
                    +`&prettyprint=false`;
                let headers = { 'Content-Type': 'application/json' };
-               let openExchangeApi = {
-                   url: endpoint,
-                   headers: headers
-               };
-               request(openExchangeApi, (error, response) => {
-                   if(error) {
-                       reject(error);
-                   } else {
-                       if(response.statusCode == 200){
-                           resolve(JSON.parse(response.body));
-                       } else {
-                           reject(JSON.parse(response.body));
-                       }
-                   }
-               });
+               axios.get(endpoint, { headers })
+                   .then((response) => response.status === 200 ? resolve(response.data) : reject(response.data))
+                   .catch(err => reject(err));
+
            });
        };
 
        //Export the API object
        module.exports = api;
-
 })();
